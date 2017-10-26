@@ -52,6 +52,7 @@ def translation(seq, offset, t_table):
 
     for i in range(offset, int(len(seq)/3)*3, 3):
         protein.append(t_table[codon.join(seq[i]+seq[i+1]+seq[i+2])]['one'])
+        protein.append(t_table[codon.join(seq[item:item+3])]['one'])
 
     return protein
       
