@@ -9,7 +9,7 @@ import re
 def read_seq(fn):
 
     f = open(fn, 'r')
-    seq = []                    # define c_seq is empty array object
+    seq = list()
 
     for line in f.readlines():
         if not re.match('^>', line):   # remove description lines
@@ -17,11 +17,12 @@ def read_seq(fn):
                if not base == '\n':
                    seq += base              
     f.close()
+    
     return seq
 
 def complementary_seq(seq):
     
-    c_seq = []                  # define c_seq is empty array object
+    c_seq = list()
 
     c_table = {'A':'T', 'T':'A', 'C':'G', 'G':'C'}
     
@@ -37,7 +38,7 @@ def reverse_seq(c_seq):
 def read_t_table(fn):
     
     f = open (fn, 'r')
-    t_table = {}                  # define translation table one codon
+    t_table = dict()
 
     for line in f.readlines():
         words = line.rstrip().split(sep=' ')  
@@ -47,11 +48,10 @@ def read_t_table(fn):
 
 def translation(seq, offset, t_table):
     
-    codon = ""
-    protein = []
-
-    for i in range(offset, int(len(seq)/3)*3, 3):
-        protein.append(t_table[codon.join(seq[i]+seq[i+1]+seq[i+2])]['one'])
+    codon = str()
+    protein = list()
+    
+    for item in range(offset, int(len(seq)/3)*3, 3):
         protein.append(t_table[codon.join(seq[item:item+3])]['one'])
 
     return protein
@@ -60,18 +60,16 @@ def translation(seq, offset, t_table):
 === main ===
 """
 
-gene = ''                         #  define gene is empty string object
-protein = []
+gene = str()
+protein = list()
 
 seq = read_seq('TP53.txt')
 c_seq = complementary_seq(seq)
 r_seq = reverse_seq(c_seq)
 t_table = read_t_table('T_Table.txt')
 
-for i in range(3):
-    protein = translation(seq, i, t_table)
+for item in range(3):
+    protein = translation(seq, item, t_table)
     print (gene.join(protein))
-    protein = translation(r_seq, i, t_table)
+    protein = translation(r_seq, item, t_table)
     print (gene.join(protein))
-
-# Hello
