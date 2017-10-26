@@ -55,12 +55,17 @@ def translation(seq, offset, t_table):
         protein.append(t_table[codon.join(seq[item:item+3])]['one'])
 
     return protein
+
+def orf(protein):
+   
+    gene = str()
+    print (gene.join(protein))
+    
       
 """
 === main ===
 """
 
-gene = str()
 protein = list()
 
 seq = read_seq('TP53.txt')
@@ -70,6 +75,6 @@ t_table = read_t_table('T_Table.txt')
 
 for item in range(3):
     protein = translation(seq, item, t_table)
-    print (gene.join(protein))
+    orf(protein)
     protein = translation(r_seq, item, t_table)
-    print (gene.join(protein))
+    orf(protein)
