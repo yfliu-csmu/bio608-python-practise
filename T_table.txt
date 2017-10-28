@@ -13,7 +13,7 @@ TGA * Ter
 TTG L Leu
 TCG S Ser
 TAG * Ter
-TGG W Trp  
+TGG W Trp
 CTT L Leu
 CCT P Pro
 CAT H His
@@ -25,7 +25,7 @@ CGC R Arg
 CTA L Leu
 CCA P Pro
 CAA Q Gln
-CGA R Arg  
+CGA R Arg
 CTG L Leu
 CCG P Pro
 CAG Q Gln
@@ -33,7 +33,7 @@ CGG R Arg
 ATT I Ile
 ACT T Thr
 AAT N Asn
-AGT S Ser  
+AGT S Ser
 ATC I Ile
 ACC T Thr
 AAC N Asn
@@ -41,7 +41,7 @@ AGC S Ser
 ATA I Ile
 ACA T Thr
 AAA K Lys
-AGA R Arg  
+AGA R Arg
 ATG M Met
 ACG T Thr
 AAG K Lys
@@ -49,7 +49,7 @@ AGG R Arg
 GTT V Val
 GCT A Ala
 GAT D Asp
-GGT G Gly  
+GGT G Gly
 GTC V Val
 GCC A Ala
 GAC D Asp
@@ -57,7 +57,7 @@ GGC G Gly
 GTA V Val
 GCA A Ala
 GAA E Glu
-GGA G Gly  
+GGA G Gly
 GTG V Val
 GCG A Ala
 GAG E Glu

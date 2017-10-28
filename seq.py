@@ -4,20 +4,18 @@ Created on Mon Oct 23 22:04:59 2017
 
 @author: Yu-Fan Liu, PH.D.
 """
-import re
+import re, csv
 
 def read_seq(fn):
 
-    f = open(fn, 'r')
-    seq = list()
+    with open(fn, 'rt') as f:
+        seq = list()      
+        for line in f.readlines():
+            if not re.match('^>', line):   # remove description lines
+                for base in line:
+                    if not base == '\n':
+                        seq.append(base)              
 
-    for line in f.readlines():
-        if not re.match('^>', line):   # remove description lines
-           for base in line:
-               if not base == '\n':
-                   seq += base              
-    f.close()
-    
     return seq
 
 def complementary_seq(seq):
@@ -37,14 +35,12 @@ def reverse_seq(c_seq):
 
 def read_t_table(fn):
     
-    f = open (fn, 'r')
-    t_table = dict()
-
-    for line in f.readlines():
-        words = line.rstrip().split(sep=' ')  
-        t_table[words[0]] = {'one':words[1], 'three':words[2]}
-        
-    return t_table  
+    with open('T_table.csv', 'r') as f:
+        t_table = dict()
+        for words in csv.reader(f, delimiter = '\t'):
+            t_table[words[0]] = {'one':words[1], 'three':words[2]}
+                
+    return t_table
 
 def translation(seq, offset, t_table):
     
