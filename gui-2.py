@@ -36,7 +36,7 @@ def clickOK():
 # === Main ===
 #
 
-wnd.title('我第二個 GUI 程式')
+wnd.title('第二個 GUI 程式')
 wnd.geometry('300x80+500+300')
 
 label1  = Label(wnd, text='請輸入 DNA 序列 ', bg='skyblue')

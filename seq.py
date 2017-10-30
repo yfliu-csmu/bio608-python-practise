@@ -15,7 +15,7 @@ def read_seq(fn):
                 for base in line:
                     if not base == '\n':
                         seq.append(base)              
-
+    
     return seq
 
 def complementary_seq(seq):
@@ -25,7 +25,7 @@ def complementary_seq(seq):
     c_table = {'A':'T', 'T':'A', 'C':'G', 'G':'C'}
     
     for base in seq:
-        c_seq += c_table[base]
+        c_seq.append(c_table[base])
 
     return c_seq
     
