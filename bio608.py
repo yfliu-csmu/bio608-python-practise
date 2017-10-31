@@ -24,7 +24,7 @@ def complementary_seq(seq):
     
     c_seq = list()
 
-    c_table = {'A':'T', 'T':'A', 'C':'G', 'G':'C'}
+    c_table = {'A':'T', 'C':'G',' T':'A', 'G':'C'}
     
     for base in seq:
         c_seq.append(c_table[base])
