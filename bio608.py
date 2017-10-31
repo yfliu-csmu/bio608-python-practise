@@ -7,7 +7,9 @@ Created on Mon Oct 23 22:04:59 2017
 import re, csv
 
 def read_seq(fn):
-
+    '''
+    從檔案取用序列資料
+    '''
     with open(fn, 'rt') as f:
         seq = list()      
         for line in f.readlines():
