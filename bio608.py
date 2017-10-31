@@ -7,7 +7,13 @@ Created on Mon Oct 23 22:04:59 2017
 import re, csv
 
 def read_seq(fn):
+<<<<<<< HEAD
     """讀取 DNA 序列"""
+=======
+    '''
+    從檔案取用序列資料
+    '''
+>>>>>>> 401c1c4c3ad63a3ff3980034df6596405ba80f0f
     with open(fn, 'rt') as f:
         seq = list()      
         for line in f.readlines():
@@ -22,7 +28,7 @@ def complementary_seq(seq):
     """互補 DNA 序列"""
     c_seq = list()
 
-    c_table = {'A':'T', 'T':'A', 'C':'G', 'G':'C'}
+    c_table = {'A':'T', 'C':'G',' T':'A', 'G':'C'}
     
     for base in seq:
         c_seq.append(c_table[base])
