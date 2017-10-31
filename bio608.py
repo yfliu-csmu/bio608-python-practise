@@ -68,7 +68,7 @@ def translation(seq, t_table):
 
 def determine_orf(frames):
     """判斷每個 Frames 的開放式框架 (ORFs) """
-    all = dict()
+    all_orfs = dict()
     
     for info, protein in frames.items():
       orfs = list()
@@ -82,9 +82,9 @@ def determine_orf(frames):
             if (len(pp)-x+1) > long:
               long = len(pp)-x+1     
             break
-      all[info] = {'orfs': orfs, 'num': num, 'long': long}    
+      all_orfs[info] = {'orfs': orfs, 'num': num, 'long': long}    
     
-    return all
+    return all_orfs
           
 def select_orf(all):
     """選擇正確的 Protein 框架"""
