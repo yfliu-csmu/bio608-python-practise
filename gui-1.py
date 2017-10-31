@@ -28,6 +28,3 @@ label2.pack()
 button1.pack(side='bottom')
 
 wnd.mainloop()
-
-
-
