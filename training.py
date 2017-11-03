@@ -15,8 +15,7 @@ def read_seq(fn):
             if not re.match('^>', line):   # remove description lines
                 for base in line:
                     if not base == '\n':
-                        seq.append(base)              
-    
+                        seq.append(base)                 
     return seq
 
 seq = read_seq('TP53.txt')
@@ -51,7 +50,7 @@ def read_t_table(fn):
         t_table = dict()
         for words in csv.reader(f, delimiter = '\t'):
             t_table[words[0]] = {'one':words[1], 'three':words[2]}
-                
+              
     return t_table
 
 t_table = read_t_table('T_table.txt')
@@ -90,16 +89,14 @@ def determine_orf(frames):
     for info, protein in frames.items():
       orfs = list()
       longest = 0
-      num = 0
       candidate = 0
-      for pp in ''.join(protein).split('*'):
+      for num, pp in enumerate(''.join(protein).split('*')):
         for x in range(len(pp)):
           if (pp[x] == 'M'):
             orfs.append(pp[x:])
             if (len(pp)-x+1) > longest:
               longest = len(pp)-x+1
               candidate = num
-            num += 1  
             break
       all_orfs[info] = {'orfs': orfs,'candidate': candidate, 'longest': longest}
       
