@@ -7,6 +7,7 @@ Created on Mon Oct 30 23:11:03 2017
 
 import bio608
 
+
 seq = bio608.read_seq('TP53.txt')
 c_seq = bio608.complementary_seq(seq)
 r_seq = bio608.reverse_seq(c_seq)
