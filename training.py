@@ -50,8 +50,9 @@ def read_t_table(fn):
     with open('T_table.csv', 'r') as f:
         t_table = dict()
         for words in csv.reader(f, delimiter = '\t'):
-            t_table[words[0]] = {'one':words[1], 'three':words[2]}
-                
+           t_table[words[0]] = {'one':words[1], 'three':words[2]}
+   
+    
     return t_table
 
 t_table = read_t_table('T_table.txt')
@@ -60,13 +61,13 @@ t_table = read_t_table('T_table.txt')
 def translation(seq, t_table):
     """進行轉譯 DNA 序列 (包含正反兩股的 6 個 Frames)"""
     codon = str()
-    all = dict()
+    frames = dict()
     
     for frame in range(3):
       protein = list()
       for item in range(frame, int(len(seq)/3)*3, 3):
         protein.append(t_table[codon.join(seq[item:item+3])]['one'])
-      all['positive strain frame-'+str(frame+1)] = protein
+      frames['positive strain frame-'+str(frame+1)] = protein
     
     c_seq = complementary_seq(seq)
     r_seq = reverse_seq(c_seq)
@@ -74,10 +75,10 @@ def translation(seq, t_table):
     for frame in range(3):
       protein = list()
       for item in range(frame, int(len(r_seq)/3)*3, 3):
-        protein.append(t_table[codon.join(seq[item:item+3])]['one'])
-      all['negative strain frame-'+str(frame+1)] = protein
+        protein.append(t_table[codon.join(r_seq[item:item+3])]['one'])
+      frames['negative strain frame-'+str(frame+1)] = protein
  
-    return all
+    return frames
 
 frames = translation(seq, t_table)
 
@@ -90,16 +91,14 @@ def determine_orf(frames):
     for info, protein in frames.items():
       orfs = list()
       longest = 0
-      num = 0
       candidate = 0
-      for pp in ''.join(protein).split('*'):
-        for x in range(len(pp)):
+      for num, pp in enumerate(''.join(protein).split('*')):
+        for x in range(len(pp)):            
           if (pp[x] == 'M'):
             orfs.append(pp[x:])
             if (len(pp)-x+1) > longest:
               longest = len(pp)-x+1
               candidate = num
-            num += 1  
             break
       all_orfs[info] = {'orfs': orfs,'candidate': candidate, 'longest': longest}
       
