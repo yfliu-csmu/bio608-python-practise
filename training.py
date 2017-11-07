@@ -49,14 +49,9 @@ def read_t_table(fn):
     with open('T_table.csv', 'r') as f:
         t_table = dict()
         for words in csv.reader(f, delimiter = '\t'):
-<<<<<<< HEAD
-            t_table[words[0]] = {'one':words[1], 'three':words[2]}
-              
-=======
            t_table[words[0]] = {'one':words[1], 'three':words[2]}
-   
-    
->>>>>>> 92a208eee314bd6d7377c95428e57af00a67db3c
+           t_table[words[0]] = {'one':words[1], 'three':words[2]}
+
     return t_table
 
 t_table = read_t_table('T_table.txt')
@@ -97,11 +92,7 @@ def determine_orf(frames):
       longest = 0
       candidate = 0
       for num, pp in enumerate(''.join(protein).split('*')):
-<<<<<<< HEAD
-        for x in range(len(pp)):
-=======
         for x in range(len(pp)):            
->>>>>>> 92a208eee314bd6d7377c95428e57af00a67db3c
           if (pp[x] == 'M'):
             orfs.append(pp[x:])
             if (len(pp)-x+1) > longest:
