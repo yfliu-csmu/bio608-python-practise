@@ -10,8 +10,9 @@ from tkinter import Tk, Label, Button, Entry, StringVar
 wnd = Tk()
 v = StringVar()
 
+### Step 1 - DNA complementary sequence from seq
 def complementary_seq(seq):
-    
+    """互補 DNA 序列"""    
     c_seq = list()
 
     c_table = {'A':'T', 'T':'A', 'C':'G', 'G':'C'}
@@ -21,9 +22,9 @@ def complementary_seq(seq):
 
     return c_seq
 
-
+### Step 2 - Define click OK button command
 def clickOK():
-  
+  """定義按鍵 OK 的功能""" 
   seq = list()
   ss = str()
 
