@@ -50,14 +50,8 @@ def read_t_table(fn):
     """建立 Translation Table"""
     with open('T_table.csv', 'r') as f:
         t_table = dict()
-<<<<<<< HEAD
         for words in csv.reader(f, delimiter='\t'):
             t_table[words[0]] = {'one': words[1], 'three': words[2]}
-=======
-        for words in csv.reader(f, delimiter = '\t'):
-           t_table[words[0]] = {'one':words[1], 'three':words[2]}
-           t_table[words[0]] = {'one':words[1], 'three':words[2]}
->>>>>>> 7d62eaabcf9fd3e929cc38705cb79096108beea4
 
     return t_table
 
@@ -97,7 +91,6 @@ def determine_orf(frames):
     all_orfs = dict()
 
     for info, protein in frames.items():
-<<<<<<< HEAD
         orfs = list()
         longest = 0
         candidate = 0
@@ -113,21 +106,7 @@ def determine_orf(frames):
         all_orfs[info] = {'orfs': orfs,
                           'candidate': candidate,
                           'longest': longest}
-=======
-      orfs = list()
-      longest = 0
-      candidate = 0
-      for num, pp in enumerate(''.join(protein).split('*')):
-        for x in range(len(pp)):            
-          if (pp[x] == 'M'):
-            orfs.append(pp[x:])
-            if (len(pp)-x+1) > longest:
-              longest = len(pp)-x+1
-              candidate = num
-            break
-      all_orfs[info] = {'orfs': orfs,'candidate': candidate, 'longest': longest}
-      
->>>>>>> 7d62eaabcf9fd3e929cc38705cb79096108beea4
+
     return all_orfs
 
 
