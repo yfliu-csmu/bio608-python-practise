@@ -50,8 +50,7 @@ def read_t_table(fn):
         t_table = dict()
         for words in csv.reader(f, delimiter = '\t'):
            t_table[words[0]] = {'one':words[1], 'three':words[2]}
-           t_table[words[0]] = {'one':words[1], 'three':words[2]}
-
+ 
     return t_table
 
 t_table = read_t_table('T_table.txt')
