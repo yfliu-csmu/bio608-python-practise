@@ -61,13 +61,14 @@ t_table = read_t_table('T_table.txt')
 ### Step 5 - Translation the six reading frames from DNA double strains
 def translation(seq, t_table):
     """進行轉譯 DNA 序列 (包含正反兩股的 6 個 Frames)"""
-    codon = str()
     frames = dict()
 
     for frame in range(3):
         protein = list()
-        for item in range(frame, int(len(seq) / 3) * 3, 3):
-            protein.append(t_table[codon.join(seq[item:item + 3])]['one'])
+        for item in range(frame, len(seq), 3):
+            codon = ''.join(seq[item:item + 3])
+            if (len(codon) == 3):
+                protein.append(t_table[codon]['one'])
         frames['positive strain frame-' + str(frame + 1)] = protein
 
     c_seq = complementary_seq(seq)
@@ -75,8 +76,10 @@ def translation(seq, t_table):
 
     for frame in range(3):
         protein = list()
-        for item in range(frame, int(len(r_seq) / 3) * 3, 3):
-            protein.append(t_table[codon.join(r_seq[item:item + 3])]['one'])
+        for item in range(frame, len(r_seq), 3):
+            codon = ''.join(r_seq[item:item + 3])
+            if (len(codon) == 3):
+                protein.append(t_table[codon]['one'])
         frames['negative strain frame-' + str(frame + 1)] = protein
 
     return frames
