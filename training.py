@@ -21,7 +21,6 @@ def read_seq(fn):
                         seq.append(base)
     return seq
 
-
 seq = read_seq('TP53.txt')
 
 ### Step 2 - DNA complementary sequence from seq
@@ -36,14 +35,12 @@ def complementary_seq(seq):
 
     return c_seq
 
-
 ### Step 3 - Reverse the DNA sequence from c_seq
 def reverse_seq(c_seq):
     """反轉 DNA 序列"""
     c_seq.reverse()
 
     return c_seq
-
 
 ### Step 4 - Create the codon table of DNA -> Protein from csv file 'T_table.csv'
 def read_t_table(fn):
@@ -54,7 +51,6 @@ def read_t_table(fn):
             t_table[words[0]] = {'one': words[1], 'three': words[2]}
 
     return t_table
-
 
 t_table = read_t_table('T_table.txt')
 
@@ -84,7 +80,6 @@ def translation(seq, t_table):
 
     return frames
 
-
 frames = translation(seq, t_table)
 
 ### Step 6 - Determine the ORFs and generate info of these ORFs (longest orf and its lenght)
@@ -111,7 +106,6 @@ def determine_orf(frames):
                           'longest': longest}
 
     return all_orfs
-
 
 all_orfs = determine_orf(frames)
 
