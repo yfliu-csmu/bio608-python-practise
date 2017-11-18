@@ -3,7 +3,7 @@
 Created on Fri Nov 17 20:10:22 2017
 
 @author: Home
-"""
+cats"""
 
 import pandas as pd
 
@@ -27,9 +27,9 @@ sd = pd.Series(score_list)
 
 
 
-bins = [39, 49, 59, 69, 79, 89, 99]
+bins = [40, 50, 60, 70, 80, 90, 100]
 
-cats = pd.cut(df['期中考'], bins)
+cats = pd.cut(df['期中考'], bins, right=False)
 grouped = df['期中考'].groupby(cats)
 bin_counts = grouped.apply(get_stats).unstack()
 print(bin_counts)
