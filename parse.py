@@ -23,15 +23,15 @@ with open(fn, 'rt') as f:
     score_list.append(score)
     
 df = pd.DataFrame(score_list, index = id_list, columns = ["期中考"])
-sd = pd.Series(score_list)
-
+s = pd.Series(score_list, index = id_list)
 
 
 bins = [40, 50, 60, 70, 80, 90, 100]
 
 cats = pd.cut(df['期中考'], bins, right=False)
 grouped = df['期中考'].groupby(cats)
-bin_counts = grouped.apply(get_stats).unstack()
+bin_counts = grouped.apply(get_stats)
+#bin_counts = grouped.apply(get_stats).unstack()
 print(bin_counts)
 
 bin_counts.index = ['40~50', '50~60', '60~70',
