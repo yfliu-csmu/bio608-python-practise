@@ -117,7 +117,7 @@ all_orfs = determine_orf(frames)
 
 ### Step 7 - Select the real ORF for the gene (TP53)
 def select_orf(all):
-    """選擇正確的 Protein 框架"""
+    """選擇最適的 Protein 框架"""
     pp = pprint.PrettyPrinter(depth=3)
     pp.pprint(all)
 
