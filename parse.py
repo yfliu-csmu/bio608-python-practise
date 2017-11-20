@@ -34,11 +34,6 @@ for row in inf:
 
 
 wb.save('test.xlsx')
-=======
-Created on Fri Nov 17 20:10:22 2017
-
-@author: Home
-cats"""
 
 import pandas as pd
 
@@ -80,6 +75,5 @@ print (df.期中考[df.期中考 < 60])
 print (df.describe())
 df.plot()
 
->>>>>>> 206df32e0372a17340e9f1961c8e173b123d5a5e
 
 
