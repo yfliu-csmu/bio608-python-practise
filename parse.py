@@ -76,5 +76,10 @@ print(df.期中考[df.期中考 < 60])
 print(df.describe())
 df.plot()
 
+<<<<<<< HEAD
 #df_aa = pd.read_html('http://www.soc-bdr.org/rds/authors/unit_tables_conversions_and_genetic_dictionaries/genetic_code_tables/')
 # print(df_aa)
+=======
+
+
+>>>>>>> 47c62c12fc0ed8fd73befcd8e9bcbbd24225cf9b
