@@ -8,21 +8,16 @@ Created on Fri Nov 17 14:47:38 2017
 @author: YF Liu, Professor
 """
 
-import openpyxl
+import openpyxl, re
 
 fn = 'binfo.TXT'
 inf = list()
 
 with open(fn, 'rt') as f:
     for line in f.readlines():
-        words = line.split(sep=' ')
-        id = words[0][0:7]
-        score = words[41][0:-1]
-        if words[46] == '':
-            ans = words[47]
-        else:
-            ans = words[46]
-        inf.append([str(id), score])
+         words = re.split(r'\s+', line)
+         id = str(words[0][0:7])
+         score = float(words[1])
 
 wb = openpyxl.Workbook()
 ws = wb.active
@@ -47,9 +42,9 @@ def get_stats(group):
 
 with open(fn, 'rt') as f:
     for line in f.readlines():
-        words = line.split(sep=' ')
+        words = re.split(r'\s+', line)
         id = str(words[0][0:7])
-        score = float(words[41])
+        score = float(words[1])
         id_list.append(id)
         score_list.append(score)
 
@@ -61,7 +56,6 @@ bins = [40, 50, 60, 70, 80, 90, 100]
 
 cats = pd.cut(df['期中考'], bins, right=False)
 grouped = df['期中考'].groupby(cats)
-#bin_counts = grouped.apply(get_stats)
 bin_counts = grouped.apply(get_stats).unstack()
 print(bin_counts)
 
@@ -74,12 +68,7 @@ bin_counts.plot(kind='bar', alpha=0.5, rot=0)
 print(df.期中考[df.期中考 < 60])
 #print (df.期中考[(df.期中考 > 60 and df.期中考 < 70)])
 print(df.describe())
-df.plot()
+#df.plot()
 
-<<<<<<< HEAD
 #df_aa = pd.read_html('http://www.soc-bdr.org/rds/authors/unit_tables_conversions_and_genetic_dictionaries/genetic_code_tables/')
 # print(df_aa)
-=======
-
-
->>>>>>> 47c62c12fc0ed8fd73befcd8e9bcbbd24225cf9b
