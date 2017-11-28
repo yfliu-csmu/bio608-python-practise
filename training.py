@@ -9,7 +9,9 @@ import re
 import csv
 import pprint
 
-### Step 1 - read input DNA sequence from plain text file 'TP53.txt'
+# Step 1 - read input DNA sequence from plain text file 'TP53.txt'
+
+
 def read_seq(fn):
     """讀取 DNA 序列"""
     with open(fn, 'rt') as f:
@@ -21,9 +23,12 @@ def read_seq(fn):
                         seq.append(base)
     return seq
 
+
 seq = read_seq('TP53.txt')
 
-### Step 2 - DNA complementary sequence from seq
+# Step 2 - DNA complementary sequence from seq
+
+
 def complementary_seq(seq):
     """互補 DNA 序列"""
     c_seq = list()
@@ -35,14 +40,18 @@ def complementary_seq(seq):
 
     return c_seq
 
-### Step 3 - Reverse the DNA sequence from c_seq
+# Step 3 - Reverse the DNA sequence from c_seq
+
+
 def reverse_seq(c_seq):
     """反轉 DNA 序列"""
     c_seq.reverse()
 
     return c_seq
 
-### Step 4 - Create the codon table of DNA -> Protein from csv file 'T_table.csv'
+# Step 4 - Create the codon table of DNA -> Protein from csv file 'T_table.csv'
+
+
 def read_t_table(fn):
     """建立 Translation Table"""
     with open('T_table.csv', 'r') as f:
@@ -52,9 +61,12 @@ def read_t_table(fn):
 
     return t_table
 
+
 t_table = read_t_table('T_table.txt')
 
-### Step 5 - Translation the six reading frames from DNA double strains
+# Step 5 - Translation the six reading frames from DNA double strains
+
+
 def translation(seq, t_table):
     """進行轉譯 DNA 序列 (包含正反兩股的 6 個 Frames)"""
     frames = dict()
@@ -80,9 +92,12 @@ def translation(seq, t_table):
 
     return frames
 
+
 frames = translation(seq, t_table)
 
-### Step 6 - Determine the ORFs and generate info of these ORFs (longest orf and its lenght)
+# Step 6 - Determine the ORFs and generate info of these ORFs (longest orf and its lenght)
+
+
 def determine_orf(frames):
     """ 判斷每個 Frames 的開放式框架 (ORFs)，
         記錄每個 Frames 上所有的開放式框架，和最長的開放式框架與長度 """
@@ -107,9 +122,12 @@ def determine_orf(frames):
 
     return all_orfs
 
+
 all_orfs = determine_orf(frames)
 
-### Step 7 - Select the real ORF for the gene (TP53)
+# Step 7 - Select the real ORF for the gene (TP53)
+
+
 def select_orf(all):
     """選擇最適的 Protein 框架"""
     pp = pprint.PrettyPrinter(depth=3)
