@@ -15,20 +15,9 @@ inf = list()
 
 with open(fn, 'rt') as f:
     for line in f.readlines():
-<<<<<<< HEAD
-        words = line.split(sep=' ')
-        id = words[0][0:7]
-        score = words[41][0:-1]
-        if words[46] == '':
-            ans = words[47]
-        else:
-            ans = words[46]
-        inf.append([str(id), float(score)])
-=======
          words = re.split(r'\s+', line)
          id = str(words[0][0:7])
          score = float(words[1])
->>>>>>> 4923710ce9794f66edf47fe9a214c186b20344e4
 
 wb = openpyxl.Workbook()
 ws = wb.active
@@ -53,15 +42,9 @@ def get_stats(group):
 
 with open(fn, 'rt') as f:
     for line in f.readlines():
-<<<<<<< HEAD
-        words = line.split(sep=' ')
-        id = str(words[0][0:7])
-        score = float(words[41])
-=======
         words = re.split(r'\s+', line)
         id = str(words[0][0:7])
         score = float(words[1])
->>>>>>> 4923710ce9794f66edf47fe9a214c186b20344e4
         id_list.append(id)
         score_list.append(score)
 
@@ -85,11 +68,8 @@ bin_counts.plot(kind='bar', alpha=0.5, rot=0)
 print(df.期中考[df.期中考 < 60])
 #print (df.期中考[(df.期中考 > 60 and df.期中考 < 70)])
 print(df.describe())
-<<<<<<< HEAD
-df.plot()
-=======
+
 #df.plot()
 
 #df_aa = pd.read_html('http://www.soc-bdr.org/rds/authors/unit_tables_conversions_and_genetic_dictionaries/genetic_code_tables/')
 # print(df_aa)
->>>>>>> 4923710ce9794f66edf47fe9a214c186b20344e4
