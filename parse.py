@@ -10,7 +10,7 @@ Created on Fri Nov 17 14:47:38 2017
 
 import openpyxl, re
 
-fn = 'binfo.TXT'
+fn = '視光-2.TXT'
 inf = list()
 
 with open(fn, 'rt') as f:
@@ -31,7 +31,7 @@ wb.save('test.xlsx')
 
 import pandas as pd
 
-fn = '0601-A.TXT'
+fn = '視光-2.TXT'
 id_list = list()
 score_list = list()
 

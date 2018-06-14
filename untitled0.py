@@ -12,4 +12,3 @@ x = a.index('M')
 print(x)
 
 
-
